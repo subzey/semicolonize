@@ -1,0 +1,22 @@
+{
+  "name": "semicolonize",
+  "version": "0.1.0-alpha",
+  "description": "Fixes semicolons in JS source code",
+  "main": "lib/semicolonize.js",
+  "license": "MIT",
+  "bin": {
+    "semicolonize": ".bin/cli.js"
+  },
+  "dependencies": {
+    "acorn": "^1.2.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test-mocha": "node ./node_modules/mocha/bin/mocha -R dot",
+    "test-jshint": "node ./node_modules/jshint/bin/jshint lib",
+    "test": "npm run test-mocha && npm run test-jshint"
+  }
+}
