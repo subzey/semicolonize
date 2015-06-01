@@ -2,10 +2,16 @@
   "name": "semicolonize",
   "version": "0.1.0-alpha",
   "description": "Fixes semicolons in JS source code",
+  "keywords": [
+    "semicolon",
+    "fix"
+  ],
   "main": "lib/semicolonize.js",
-  "license": "MIT",
+  "author": "Anton Khlynovskiy <subzey@gmail.com>",
+  "license": "WTFPL",
+  "preferGlobal": true,
   "bin": {
-    "semicolonize": ".bin/cli.js"
+    "semicolonize": "./bin/cli.js"
   },
   "dependencies": {
     "acorn": "^1.2.2"
@@ -16,7 +22,7 @@
   },
   "scripts": {
     "test-mocha": "node ./node_modules/mocha/bin/mocha -R dot",
-    "test-jshint": "node ./node_modules/jshint/bin/jshint lib",
+    "test-jshint": "node ./node_modules/jshint/bin/jshint lib bin",
     "test": "npm run test-mocha && npm run test-jshint"
   }
 }

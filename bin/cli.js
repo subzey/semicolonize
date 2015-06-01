@@ -70,12 +70,30 @@ if (useStdin){
 		});
 		stream.on('end', function(){
 			var sourceCode = Buffer.concat(buffers).toString('utf-8');
-			var processedCode = semicolonize(sourceCode);
+			var processedCode;
+			try {
+				processedCode = semicolonize(sourceCode);
+			} catch (e){
+				console.error('Error parsing JS: ' + fullFilename);
+				process.exitCode = 1;
+				return;
+			}
 			if (processedCode === sourceCode){
 				// Nothing changed
 				return;
 			}
-			require('fs').createWriteStream(fullFilename).end(processedCode);
+			var writeStream = require('fs').createWriteStream(fullFilename);
+			writeStream.on('error', function(){
+					console.error('Error writing file back: ' + fullFilename);
+					process.exitCode = 1;
+				})
+			;
+			writeStream.write(processedCode);
+			writeStream.end();
+		});
+		stream.on('error', function(e){
+			console.error('Error reading file: ' + fullFilename);
+			process.exitCode = 1;
 		});
 	});
 }
