@@ -32,4 +32,4 @@ Semicolonize can be used in node environment as a module.
 
 	semicolonize(/*string */ sourceCode)
 
-Return a string, the code with corrected semicolons.
+Returns a string, the code with corrected semicolons.

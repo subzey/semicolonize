@@ -1,6 +1,6 @@
 {
   "name": "semicolonize",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "description": "Fixes semicolons in JS source code",
   "keywords": [
     "semicolon",
@@ -9,12 +9,19 @@
   "main": "lib/semicolonize.js",
   "author": "Anton Khlynovskiy <subzey@gmail.com>",
   "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subzey/semicolonize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/subzey/semicolonize/issues"
+  },
   "preferGlobal": true,
   "bin": {
     "semicolonize": "./bin/cli.js"
   },
   "dependencies": {
-    "acorn": "^1.2.2"
+    "acorn": "^2.0.4"
   },
   "devDependencies": {
     "jshint": "^2.7.0",
